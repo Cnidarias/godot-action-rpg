@@ -6,6 +6,8 @@ export var MAX_SPEED = 80
 export var FRICTION = 700
 export var ROLL_SPEED = 100
 
+export var HIT_INVINCIBILITY_DURATION = 0.5
+
 enum {
 	MOVE,
 	ROLL,
@@ -14,6 +16,8 @@ enum {
 
 var state = MOVE
 
+var stats = PlayerStats
+
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.RIGHT
 
@@ -21,9 +25,10 @@ onready var animation_player = $AnimationPlayer
 onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var sword_hit_box = $HitboxPivot/SwordHitBox
-
+onready var hurt_box = $HurtBox
 
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	animation_tree.active = true
 	sword_hit_box.knock_back_vector = roll_vector
 
@@ -82,7 +87,7 @@ func attack_animation_finished():
 	state = MOVE
 
 
-func roll_state(delta):
+func roll_state(_delta):
 	velocity = roll_vector * ROLL_SPEED
 	move()
 	animation_state.travel("roll")
@@ -90,3 +95,9 @@ func roll_state(delta):
 
 func roll_animation_finished():
 	state = MOVE
+
+
+func _on_HurtBox_area_entered(area):
+	stats.health -= area.damage
+	hurt_box.start_invinciblity(HIT_INVINCIBILITY_DURATION)
+	hurt_box.create_hit_effect()

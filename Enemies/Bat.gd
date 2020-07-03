@@ -23,6 +23,8 @@ var state = IDLE
 onready var stats = $Stats
 onready var player_detection_zone = $PlayerDetectionZone
 onready var sprite = $Sprite
+onready var hurt_box = $HurtBox
+onready var soft_collision = $SoftCollision
 
 
 func _physics_process(delta):
@@ -44,6 +46,7 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 	
+	velocity += soft_collision.get_push_vector() * delta * 400
 	velocity = move_and_slide(velocity)
 
 
@@ -55,6 +58,7 @@ func seek_player():
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
 	knock_back = area.knock_back_vector * KNOCK_BACK_INIT
+	hurt_box.create_hit_effect()
 
 
 func _on_Stats_no_health():

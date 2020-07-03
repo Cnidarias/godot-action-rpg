@@ -19,6 +19,10 @@ config/name="Action-rpg-tutorial"
 run/main_scene="res://scenes/world.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=320
@@ -101,6 +105,7 @@ roll={
 2d_physics/layer_3="player_hurtbox"
 2d_physics/layer_4="enemy_hurtbox"
 2d_physics/layer_5="enemy"
+2d_physics/layer_6="soft_collisions"
 
 [rendering]
 
