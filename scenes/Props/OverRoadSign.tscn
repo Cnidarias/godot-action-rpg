@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/props-shdw.png" type="Texture" id=1]
+
+[node name="OverRoadSign" type="Sprite"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 867, 501, 121, 88 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -22.0
+margin_top = -20.0
+margin_right = 24.0
+margin_bottom = -6.0
+text = "hello"
+align = 1
+valign = 1
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/props-shdw.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 41.0443, 35.3561 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.26038, 13.1074 )
+
+[node name="SmallHouseWithGreen" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 874, 224, 102, 93 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -3.97299, 9.27029 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 39.9947, 30.7244 )
+shape = SubResource( 2 )

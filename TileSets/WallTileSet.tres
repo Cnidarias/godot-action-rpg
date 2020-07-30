@@ -1,39 +1,6 @@
-[gd_scene load_steps=59 format=2]
+[gd_resource type="TileSet" load_steps=49 format=2]
 
-[ext_resource path="res://scenes/Bush.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/world.gd" type="Script" id=3]
-[ext_resource path="res://World/GrassBackground.png" type="Texture" id=4]
-[ext_resource path="res://World/DirtTileset.png" type="Texture" id=5]
-[ext_resource path="res://World/CliffTileset.png" type="Texture" id=6]
-[ext_resource path="res://scenes/Grass.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=8]
-[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=9]
-
-[sub_resource type="TileSet" id=1]
-0/name = "DirtTileset.png 0"
-0/texture = ExtResource( 5 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 176, 80 )
-0/tile_mode = 1
-0/autotile/bitmask_mode = 1
-0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 2 ), 54, Vector2( 0, 3 ), 48, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 63, Vector2( 1, 3 ), 56, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 219, Vector2( 2, 2 ), 27, Vector2( 2, 3 ), 24, Vector2( 3, 0 ), 144, Vector2( 3, 1 ), 146, Vector2( 3, 2 ), 18, Vector2( 3, 3 ), 16, Vector2( 4, 0 ), 176, Vector2( 4, 1 ), 182, Vector2( 4, 2 ), 434, Vector2( 4, 3 ), 50, Vector2( 4, 4 ), 178, Vector2( 5, 0 ), 248, Vector2( 5, 1 ), 255, Vector2( 5, 2 ), 507, Vector2( 5, 3 ), 59, Vector2( 5, 4 ), 251, Vector2( 6, 0 ), 440, Vector2( 6, 1 ), 447, Vector2( 6, 2 ), 510, Vector2( 6, 3 ), 62, Vector2( 6, 4 ), 446, Vector2( 7, 0 ), 152, Vector2( 7, 1 ), 155, Vector2( 7, 2 ), 218, Vector2( 7, 3 ), 26, Vector2( 7, 4 ), 154, Vector2( 8, 0 ), 184, Vector2( 8, 1 ), 191, Vector2( 8, 2 ), 506, Vector2( 8, 3 ), 58, Vector2( 8, 4 ), 186, Vector2( 9, 0 ), 443, Vector2( 9, 1 ), 254, Vector2( 9, 2 ), 442, Vector2( 9, 3 ), 190, Vector2( 10, 2 ), 250, Vector2( 10, 3 ), 187 ]
-0/autotile/icon_coordinate = Vector2( 3, 3 )
-0/autotile/tile_size = Vector2( 16, 16 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
+[ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -176,9 +143,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [sub_resource type="ConvexPolygonShape2D" id=48]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=49]
+[resource]
 0/name = "CliffTileset.png 0"
-0/texture = ExtResource( 6 )
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 352, 160 )
@@ -483,113 +450,3 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
-
-[node name="World" type="Node2D"]
-position = Vector2( -2, 0 )
-script = ExtResource( 3 )
-
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 160, 90 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 624, 432 )
-
-[node name="DirtPathTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( -65527, 0, 0, -65526, 0, 1, -65525, 0, 2, 9, 0, 65536, 10, 0, 65537, 11, 0, 65538, 65545, 0, 131072, 65546, 0, 65542, 65547, 0, 65538, 131082, 0, 131072, 131083, 0, 9, 131084, 0, 1, 131085, 0, 2, 196619, 0, 131072, 196620, 0, 65542, 196621, 0, 65538, 262156, 0, 65536, 262157, 0, 131077, 262158, 0, 1, 262159, 0, 1, 262160, 0, 1, 262161, 0, 1, 262162, 0, 1, 262163, 0, 1, 262164, 0, 2, 327692, 0, 131072, 327693, 0, 131073, 327694, 0, 131073, 327695, 0, 131073, 327696, 0, 131073, 327697, 0, 131073, 327698, 0, 131073, 327699, 0, 131073, 327700, 0, 131074, 458751, 0, 0, 393216, 0, 1, 393217, 0, 1, 393218, 0, 1, 393219, 0, 1, 393220, 0, 1, 393221, 0, 1, 393222, 0, 1, 393223, 0, 1, 393224, 0, 1, 393225, 0, 2, 524287, 0, 131072, 458752, 0, 131073, 458753, 0, 131073, 458754, 0, 131073, 458755, 0, 131073, 458756, 0, 131073, 458757, 0, 131073, 458758, 0, 131073, 458759, 0, 131073, 458760, 0, 65542, 458761, 0, 65538, 524296, 0, 65536, 524297, 0, 65538, 589832, 0, 65536, 589833, 0, 65538, 655368, 0, 65536, 655369, 0, 131077, 655370, 0, 1, 655371, 0, 1, 655372, 0, 1, 655373, 0, 2, 720904, 0, 131072, 720905, 0, 131073, 720906, 0, 131073, 720907, 0, 131073, 720908, 0, 131073, 720909, 0, 131074 )
-
-[node name="WallTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 49 )
-cell_size = Vector2( 32, 32 )
-collision_mask = 0
-format = 1
-tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 2, -65528, 0, 0, -65527, 0, 1, -65526, 0, 2, 65535, 0, 65536, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65538, 8, 0, 131072, 9, 0, 65542, 10, 0, 65538, 131071, 0, 131072, 65536, 0, 131073, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131074, 65545, 0, 131072, 65546, 0, 131074, 196617, 0, 0, 196618, 0, 2, 327679, 0, 0, 262144, 0, 2, 262150, 0, 196608, 262151, 0, 6, 262152, 0, 1, 262153, 0, 131078, 262154, 0, 65538, 393215, 0, 65536, 327680, 0, 131077, 327681, 0, 1, 327682, 0, 1, 327683, 0, 2, 327687, 0, 65536, 327688, 0, 65537, 327689, 0, 65537, 327690, 0, 65538, 458751, 0, 131072, 393216, 0, 131073, 393217, 0, 131073, 393218, 0, 131073, 393219, 0, 131074, 393223, 0, 131072, 393224, 0, 131073, 393225, 0, 131073, 393226, 0, 131074 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 107.994, 110.778 )
-current = true
-zoom = Vector2( 1.2, 1.2 )
-smoothing_enabled = true
-
-[node name="YSort" type="YSort" parent="."]
-
-[node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 107.994, 110.778 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
-remote_path = NodePath("../../../Camera2D")
-
-[node name="Bushes" type="YSort" parent="YSort"]
-
-[node name="Bush" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 296.276, 156.696 )
-
-[node name="Bush2" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 38.7344, 75.5163 )
-
-[node name="Bush3" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 253.914, 156.607 )
-
-[node name="Bush4" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 264.604, 42.9281 )
-
-[node name="Bush5" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 50.7212, 28.3197 )
-
-[node name="Bush6" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 168.597, 83.261 )
-
-[node name="Bush7" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 96.6543, 26.9003 )
-
-[node name="Grass" type="YSort" parent="YSort"]
-
-[node name="Grass2" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 263.651, 106.034 )
-
-[node name="Grass4" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 243.651, 106.034 )
-
-[node name="Grass5" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 223.651, 106.034 )
-
-[node name="Grass6" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 203.651, 106.034 )
-
-[node name="Grass7" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 40.942, 131.432 )
-
-[node name="Grass8" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 58.0066, 142.544 )
-
-[node name="Grass9" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 76.2617, 131.829 )
-
-[node name="Grass10" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 97.6916, 142.544 )
-
-[node name="Grass3" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 193.5, 15.25 )
-
-[node name="Grass11" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 142, 49 )
-
-[node name="Grass" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 98.6506, 76.0335 )
-
-[node name="Bat" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 169.058, 152.391 )
-
-[node name="Bat2" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 234.539, 40.8756 )
-
-[node name="Bat3" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 23.4142, 114.69 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 9 )]
-margin_left = 8.7093
-margin_right = 75.7093
